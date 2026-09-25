@@ -4,13 +4,13 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "npm run dev --workspace frontend",
-    "api": "npm run dev --workspace backend",
-    "build": "npm run build --workspace frontend",
-    "test": "npm run test --workspace backend",
-    "clean": "rm -rf frontend/dist"
+    "api": "dotnet run --project backend/College.Api.csproj",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "npm run build --workspace frontend",
+    "build:backend": "dotnet build backend/College.Api.csproj",
+    "clean": "rm -rf frontend/dist backend/bin backend/obj"
   },
   "workspaces": [
-    "frontend",
-    "backend"
+    "frontend"
   ]
 }
